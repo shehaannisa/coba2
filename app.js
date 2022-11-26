@@ -24,10 +24,10 @@ app.use('/admin', adminRoutes)
 app.use(authRoutes);
 app.use(userRoutes);
 
-// app.listen(8080, function () {
-//     console.log('Node server listening on port 8080');
-// });
-
-app.listen(process.env.APP_PORT, ()=> {
-    console.log('Server up and running...');
+app.listen(8080, function () {
+    console.log('Node server listening on port 8080');
 });
+
+// app.listen(process.env.APP_PORT, ()=> {
+//     console.log('Server up and running...');
+// });
