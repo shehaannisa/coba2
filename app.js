@@ -28,4 +28,6 @@ app.use(userRoutes);
 //     console.log('Node server listening on port 8080');
 // });
 
-app.listen = procces.env.PORT
+app.listen(process.env.APP_PORT, ()=> {
+    console.log('Server up and running...');
+});
