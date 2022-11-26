@@ -24,6 +24,6 @@ app.use('/admin', adminRoutes)
 app.use(authRoutes);
 app.use(userRoutes);
 
-app.listen(3000, function () {
-    console.log('Node server listening on port 3000');
+app.listen(6245, function () {
+    console.log('Node server listening on port 6245');
 });
