@@ -24,7 +24,7 @@ app.use('/admin', adminRoutes)
 app.use(authRoutes);
 app.use(userRoutes);
 
-app.listen(mongodb://mongo:TKb6r3TOv54flYTZn5nx@containers-us-west-31.railway.app:6245, function () {
+app.listen(6245, function () {
     console.log('Node server listening on port 6245');
 });
 
