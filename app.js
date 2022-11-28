@@ -1,3 +1,4 @@
+import cors from "cors";
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('./config/database');
