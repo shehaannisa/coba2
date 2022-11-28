@@ -13,9 +13,14 @@ const handleErrors = (err) => {
         });
     }
 
-    // incorrect username
-    if (err.message === 'incorrect username') {
-        errors.username = 'that username is not registered';
+//     // incorrect username
+//     if (err.message === 'incorrect username') {
+//         errors.username = 'that username is not registered';
+//     }
+    
+    // incorrect email
+    if (err.message === 'incorrect email') {
+        errors.email = 'that email is not registered';
     }
 
     // incorrect password
