@@ -11,6 +11,7 @@ const app = express();
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // middleware
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json());
@@ -24,10 +25,7 @@ app.use('/admin', adminRoutes)
 // routes
 app.use(authRoutes);
 app.use(userRoutes);
-app.use(cors({
-    credentials: true,
-    origin: []
-}));
+
 
 app.listen(process.env.PORT||5173, function () {
     console.log(`listen on port ${process.env.PORT || 5173}`);
