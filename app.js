@@ -23,8 +23,12 @@ app.use('/admin', adminRoutes)
 // routes
 app.use(authRoutes);
 app.use(userRoutes);
+app.use(cors({
+    credentials: true,
+    origin: 'http://localhost:5173'
+}));
 
-app.listen(process.env.PORT||3000, function () {
-    console.log(`listen on port ${process.env.PORT || 3000}`);
+app.listen(process.env.PORT||5173, function () {
+    console.log(`listen on port ${process.env.PORT || 5173}`);
 });
 
