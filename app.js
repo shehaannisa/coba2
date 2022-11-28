@@ -26,7 +26,7 @@ app.use(authRoutes);
 app.use(userRoutes);
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:5173'
+    origin: []
 }));
 
 app.listen(process.env.PORT||5173, function () {
