@@ -6,13 +6,13 @@ module.exports = {
         const { judul_kegiatan, tgl_kegiatan, lokasi_kegiatan, deskripsi } = req.body;
     
         try {
-            const kegiatan = await Kegiatan.create({ judul_kegiatan, tgl_kegiatan, lokasi_kegiatan, deskripsi });
+            const kegiatans = await Kegiatan.create({ judul_kegiatan, tgl_kegiatan, lokasi_kegiatan, deskripsi });
             res.status(201).json({ 
-                kegiatan: kegiatan._id,
-                judul_kegiatan: kegiatan.judul_kegiatan,
-                tgl_kegiatan: kegiatan.tgl_kegiatan,
-                lokasi_kegiatan: kegiatan.lokasi_kegiatan,
-                deskripsi: kegiatan.deskripsi
+                kegiatan: kegiatans._id,
+                judul_kegiatan: kegiatans.judul_kegiatan,
+                tgl_kegiatan: kegiatans.tgl_kegiatan,
+                lokasi_kegiatan: kegiatans.lokasi_kegiatan,
+                deskripsi: kegiatans.deskripsi
              });
         }
         catch (err) {
@@ -74,13 +74,13 @@ module.exports = {
   
     updateKegiatanByID: async (req, res) => {
       try {
-        const kegiatan = await Kegiatan.findById(req.params.id, "-__v")
+        const kegiatans = await Kegiatan.findById(req.params.id, "-__v")
   
-        Object.assign(kegiatan, req.body)
-        kegiatan.save();
+        Object.assign(kegiatans, req.body)
+        kegiatans.save();
         res.status(201).send({ 
           message : "Kegiatan updated!",
-          data : kegiatan })
+          data : kegiatans })
      
       } catch (error) {
         res.status(500).json({ message: "Server Error" })
