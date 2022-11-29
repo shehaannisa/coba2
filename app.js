@@ -36,6 +36,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('./config/database');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
+const kegiatanRoutes = require('./routes/kegiatanRoutes');
 const cors = require('cors');
 
 const app = express();
@@ -46,11 +47,10 @@ mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection 
 // middleware
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 
 //import
-const kegiatanRoutes = require('./routes/kegiatanRoutes')
 
 // routes
 app.use(authRoutes);
