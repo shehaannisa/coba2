@@ -9,7 +9,7 @@ const {
     updateKegiatanByID
 } = require("../controllers/kegiatanController");
 
-router.post("/postKegiatan", uploadKegiatan)
+router.post("/postKegiatan", uploadKegiatan);
 router.get("/AllKegiatan", getAllKegiatan);
 router.get("/:id", getKegiatanByID);
 router.delete("/:id", deleteKegiatanByID);
