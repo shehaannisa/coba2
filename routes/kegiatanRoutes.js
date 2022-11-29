@@ -6,7 +6,7 @@ const {
     getAllKegiatan,
     getKegiatanByID,
     deleteKegiatanByID,
-    updateKegiatanByID
+    updateKegiatanByID,
 } = require("../controllers/kegiatanController");
 
 router.post("/postKegiatan", uploadKegiatan);
