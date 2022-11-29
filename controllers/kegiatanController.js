@@ -1,26 +1,26 @@
 // const bcrypt = require('bcrypt');
 const Kegiatan = require("../models/Kegiatan");
 
-module.exports = {
-    uploadKegiatan: async (req, res) => {
-        const { judul_kegiatan, tgl_kegiatan, lokasi_kegiatan, deskripsi } = req.body;
-    
-        try {
-            const kegiatans = await Kegiatan.create({ judul_kegiatan, tgl_kegiatan, lokasi_kegiatan, deskripsi });
-            res.status(201).json({ 
-                kegiatan: kegiatans._id,
-                judul_kegiatan: kegiatans.judul_kegiatan,
-                tgl_kegiatan: kegiatans.tgl_kegiatan,
-                lokasi_kegiatan: kegiatans.lokasi_kegiatan,
-                deskripsi: kegiatans.deskripsi
-             });
-        }
-        catch (err) {
-            const errors = handleErrors(err);
-            res.status(400).json({ errors })
-        }
-    }, 
+module.exports.uploadKegiatan = async (req, res) => {
+  const { judul_kegiatan, tgl_kegiatan, lokasi_kegiatan, deskripsi } = req.body;
 
+  try {
+      const kegiatan = await Kegiatan.create({ judul_kegiatan, tgl_kegiatan, lokasi_kegiatan, deskripsi });
+      res.status(201).json({ 
+          kegiatan: kegiatan._id,
+          judul_kegiatan: kegiatan.judul_kegiatan,
+          tgl_kegiatan: kegiatan.tgl_kegiatan,
+          lokasi_kegiatan: kegiatan.lokasi_kegiatan,
+          deskripsi: kegiatan.deskripsi
+       });
+  }
+  catch (err) {
+      const errors = handleErrors(err);
+      res.status(400).json({ errors })
+  }
+}
+
+module.exports = {
     getAllKegiatan: async(req, res) => {
       try {
         const kegiatans = await Kegiatan.find({}, "-__v")
