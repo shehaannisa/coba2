@@ -23,11 +23,11 @@ module.exports = {
 
     getAllKegiatan: async(req, res) => {
       try {
-        const kegiatan = await Kegiatan.find({}, "-__v")
+        const kegiatans = await Kegiatan.find({}, "-__v")
         
         res.status(200).json({
           message: "Getting Data Kegiatan",
-          data: kegiatan
+          data: kegiatans
         })
       } catch (error) {
         res.status(500).json({ message: "Server Error" })
@@ -36,16 +36,16 @@ module.exports = {
   
     getKegiatanByID: async(req, res) => {    
       try {
-        const kegiatan = await Kegiatan.findById(req.params.id, "-__v")
+        const kegiatans = await Kegiatan.findById(req.params.id, "-__v")
   
-        if(!kegiatan){
+        if(!kegiatans){
           res.status(404).json({
             message : "Kegiatan tidak ditemukan"
           });
       } else{
         res.status(200).json({
           message: "kamu mencari kegiatan",
-          data: kegiatan
+          data: kegiatans
         })
       }
       } catch (error) {
@@ -55,14 +55,14 @@ module.exports = {
   
     deleteKegiatanByID: async (req, res) => {
       try {
-        const kegiatan = await Kegiatan.findById(req.params.id, "-__v")
+        const kegiatans = await Kegiatan.findById(req.params.id, "-__v")
   
-        if(!kegiatan){
+        if(!kegiatans){
           res.status(404).json({
             message : "Kegiatan tidak ditemukan"
           });
       } else{
-        kegiatan.deleteOne()
+        kegiatans.deleteOne()
         res.status(201).json(
           {message: "Kegiatan Deleted"
         })
