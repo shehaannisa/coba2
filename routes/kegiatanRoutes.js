@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const uploadKegiatan = require("../controllers/kegiatanController");
+
 const {
+    uploadKegiatan,
     getAllKegiatan,
     getKegiatanByID,
     deleteKegiatanByID,
@@ -9,7 +10,7 @@ const {
 } = require("../controllers/kegiatanController");
 
 router.post("/postKegiatan", uploadKegiatan);
-router.get("/getAllKegiatan", getAllKegiatan);
+router.get("/AllKegiatan", getAllKegiatan);
 router.get("/:id", getKegiatanByID);
 router.delete("/:id", deleteKegiatanByID);
 router.patch("/:id", updateKegiatanByID);
