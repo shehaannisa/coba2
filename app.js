@@ -12,7 +12,7 @@
 
 // // middleware
 // app.use(cors());
-// app.use(express.urlencoded({ extended: false }));
+// app.use(express.urlencoded({ extended: true }));
 // app.use(bodyParser.urlencoded({ extended: false }))
 // app.use(express.json());
 
