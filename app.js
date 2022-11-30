@@ -55,7 +55,7 @@ app.use(express.json());
 // routes
 
 app.use(authRoutes);
-app.use(userRoutes || kegiatanRoutes);
+app.use(userRoutes && kegiatanRoutes);
 
 
 
