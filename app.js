@@ -55,7 +55,8 @@ app.use(express.json());
 // routes
 
 app.use(authRoutes);
-app.use(userRoutes && kegiatanRoutes);
+app.use("getAllUser", userRoutes);
+app.use("/getAllKegiatan", kegiatanRoutes);
 
 
 
