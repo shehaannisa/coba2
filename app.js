@@ -53,9 +53,9 @@ app.use(express.json());
 //import
 
 // routes
-app.use(kegiatanRoutes);
+
 app.use(authRoutes);
-app.use(userRoutes);
+app.use(userRoutes, kegiatanRoutes);
 
 
 
