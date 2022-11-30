@@ -47,8 +47,8 @@ mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection 
 
 // middleware
 app.use(cors());
-app.use(express.urlencoded({ extended: false }));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
 //import
