@@ -21,68 +21,66 @@ module.exports = {
         }
     }, 
     getAllKegiatan: async(req, res) => {
-      try {
-        const kegiatans = await Kegiatan.find({}, "-__v")
-        
-        res.status(200).json({
-          message: "Getting Data Kegiatan",
-          data: kegiatans
-        })
-      } catch (error) {
-        res.status(500).json({ message: "Server Error" })
-      }
+        try {
+            const kegiatans = await Kegiatan.find({}, "-__v")
+            
+            res.status(200).json({
+                message: "Getting Data Kegiatan",
+                data: kegiatans
+            })
+        } catch (error) {
+            res.status(500).json({ message: "Server Error" })
+        }
     },
-  
-    getKegiatanByID: async(req, res) => {    
-      try {
-        const kegiatans = await Kegiatan.findById(req.params.id, "-__v")
-  
-        if(!kegiatans){
-          res.status(404).json({
-            message : "Kegiatan tidak ditemukan"
-          });
-      } else{
-        res.status(200).json({
-          message: "kamu mencari kegiatan",
-          data: kegiatans
-        })
-      }
-      } catch (error) {
-        res.status(500).json({ message: "Server Error" })
-      }
+    
+    getKegiatanByID: async(req, res) => {
+        try {
+            const kegiatans = await Kegiatan.findById(req.params.id, "-__v")
+            
+            if(!kegiatans){
+                res.status(404).json({
+                    message : "Kegiatan tidak ditemukan"
+                });
+            } else{
+                res.status(200).json({
+                    message: "kamu mencari kegiatan",
+                    data: kegiatans
+                })
+            }
+        } catch (error) {
+            res.status(500).json({ message: "Server Error" })
+        }
     },
-  
+    
     deleteKegiatanByID: async (req, res) => {
-      try {
-        const kegiatans = await Kegiatan.findById(req.params.id, "-__v")
-  
-        if(!kegiatans){
-          res.status(404).json({
-            message : "Kegiatan tidak ditemukan"
-          });
-      } else{
-        kegiatans.deleteOne()
-        res.status(201).json(
-          {message: "Kegiatan Deleted"
-        })
-      }
-      } catch (error) {
-        res.status(500).json({ message: "Server Error" })
-      }
+        try {
+            const kegiatans = await Kegiatan.findById(req.params.id, "-__v")
+            if(!kegiatans){
+                res.status(404).json({
+                    message : "Kegiatan tidak ditemukan"
+                });
+            } else{
+                kegiatans.deleteOne()
+                res.status(201).json({
+                    message: "Kegiatan Deleted"
+                })
+            }
+        } catch (error) {
+            res.status(500).json({ message: "Server Error" })
+        }
     },
-  
+    
     updateKegiatanByID: async (req, res) => {
-      try {
-        const kegiatans = await Kegiatan.findById(req.params.id, "-__v")
-  
-        Object.assign(kegiatans, req.body)
-        kegiatans.save();
-        res.status(201).send({ 
-          message : "Kegiatan updated!",
-          data : kegiatans })
-     
-      } catch (error) {
-        res.status(500).json({ message: "Server Error" })
-      }
+        try {
+            const kegiatans = await Kegiatan.findById(req.params.id, "-__v")
+            
+            Object.assign(kegiatans, req.body)
+            kegiatans.save();
+            res.status(201).send({ 
+                message : "Kegiatan updated!",
+                data : kegiatans })
+        } catch (error) {
+            res.status(500).json({ message: "Server Error" })
+        }
     }
-  }
+}
