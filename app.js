@@ -53,9 +53,10 @@ app.use(express.json());
 //import
 
 // routes
+app.use(kegiatanRoutes);
 app.use(authRoutes);
 app.use(userRoutes);
-app.use('/kegiatans'. kegiatanRoutes);
+
 
 
 app.listen(process.env.PORT||5173, function () {
