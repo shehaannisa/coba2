@@ -40,6 +40,7 @@ const kegiatanRoutes = require('./routes/kegiatanRoutes');
 const cors = require('cors');
 
 const app = express();
+require('dotenv').config();
 
 //connection to database
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -57,9 +58,6 @@ app.use(express.json());
 app.use(authRoutes);
 app.use(kegiatanRoutes);
 app.use(userRoutes);
-
-
-
 
 app.listen(process.env.PORT||5173, function () {
     console.log(`listen on port ${process.env.PORT || 5173}`);
