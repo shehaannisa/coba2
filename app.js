@@ -40,7 +40,6 @@ const kegiatanRoutes = require('./routes/kegiatanRoutes');
 const cors = require('cors');
 
 const app = express();
-require('dotenv').config();
 
 //connection to database
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
